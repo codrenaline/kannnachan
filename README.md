@@ -12,6 +12,19 @@ has, etc!
 [hubot]: http://hubot.github.com
 [generator-hubot]: https://github.com/github/generator-hubot
 
+### Running kannachan and Enabled to slack
+```shell
+$ export HUBOT_SLACK_TOKEN=YOUR_TOKEN
+```
+
+```shell
+$ export PORT=80
+```
+
+```shell
+$ ./bin/hubot -a slack
+```
+
 ### Running kannachan Locally
 
 You can test your hubot by running the following, however some plugins will not

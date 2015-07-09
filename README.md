@@ -15,13 +15,7 @@ has, etc!
 ### Running kannachan and Enabled to slack
 ```shell
 $ export HUBOT_SLACK_TOKEN=YOUR_TOKEN
-```
-
-```shell
 $ export PORT=80
-```
-
-```shell
 $ ./bin/hubot -a slack
 ```
 

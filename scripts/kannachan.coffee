@@ -5,11 +5,11 @@ module.exports = (robot) ->
     fetchImage msg
     msg.send 'なあに？'
 
-  robot.hear /^\@kannachan\s(おはよう|おはよ|おはようございます。)$/, (msg) ->
+  robot.hear /^\@kannachan\:\s(おはよう|おはよ|おはようございます。)$/, (msg) ->
     msg_messages = ['おはよ。', '朝ごはんちゃんと食べた？', '今日も頑張ろうね']
     msg.send msg_messages[random(3)]
 
-  robot.hear /^(\@kannachan)\s([0-9]*)\s([\+\-\*\/])\s([0-9]*)$/, (msg) ->
+  robot.hear /^(\@kannachan\:)\s([0-9]*)\s([\+\-\*\/])\s([0-9]*)$/, (msg) ->
     if msg.match[3] == '+'
       msgult = parseInt(msg.match[2], 10) + parseInt(msg.match[4], 10)
     else if msg.match[3] == '-'

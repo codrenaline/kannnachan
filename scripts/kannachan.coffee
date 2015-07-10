@@ -9,18 +9,18 @@ module.exports = (robot) ->
     msg_messages = ['おはよ。', '朝ごはんちゃんと食べた？', '今日も頑張ろうね']
     msg.send msg_messages[random(3)]
 
-  robot.hear /^(\@kannachan\:)\s([0-9]*)\s([\+\-\*\/])\s([0-9]*)$/, (msg) ->
-    if msg.match[3] == '+'
-      msgult = parseInt(msg.match[2], 10) + parseInt(msg.match[4], 10)
-    else if msg.match[3] == '-'
-      msgult = parseInt(msg.match[2], 10) - parseInt(msg.match[4], 10)
-    else if msg.match[3] == '*'
-      msgult = parseInt(msg.match[2], 10) * parseInt(msg.match[4], 10)
+  robot.hear /^\@kannachan\:\s([0-9]*)\s([\+\-\*\/])\s([0-9]*)$/, (msg) ->
+    if msg.match[2] == '+'
+      msgult = parseInt(msg.match[1], 10) + parseInt(msg.match[3], 10)
+    else if msg.match[2] == '-'
+      msgult = parseInt(msg.match[1], 10) - parseInt(msg.match[3], 10)
+    else if msg.match[2] == '*'
+      msgult = parseInt(msg.match[1], 10) * parseInt(msg.match[3], 10)
     else
-      if parseInt(msg.match[4], 10) == 0
+      if parseInt(msg.match[3], 10) == 0
         msgult = '0で割ることはできないよ。ちゃんと勉強しないと嫌いになっちゃうぞ。'
       else
-        msgult = parseInt(msg.match[2], 10) / parseInt(msg.match[4], 10)
+        msgult = parseInt(msg.match[1], 10) / parseInt(msg.match[3], 10)
 
     msg.send msgult
 

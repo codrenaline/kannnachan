@@ -11,18 +11,18 @@ module.exports = (robot) ->
 
   robot.hear /^\@kannachan\:\s([0-9]*)\s([\+\-\*\/])\s([0-9]*)$/, (msg) ->
     if msg.match[2] == '+'
-      msgult = parseInt(msg.match[1], 10) + parseInt(msg.match[3], 10)
+      result = "#{parseInt(msg.match[1], 10) + parseInt(msg.match[3], 10)}"
     else if msg.match[2] == '-'
-      msgult = parseInt(msg.match[1], 10) - parseInt(msg.match[3], 10)
+      result = "#{parseInt(msg.match[1], 10) - parseInt(msg.match[3], 10)}"
     else if msg.match[2] == '*'
-      msgult = parseInt(msg.match[1], 10) * parseInt(msg.match[3], 10)
+      result = "#{parseInt(msg.match[1], 10) * parseInt(msg.match[3], 10)}"
     else
       if parseInt(msg.match[3], 10) == 0
-        msgult = '0で割ることはできないよ。ちゃんと勉強しないと嫌いになっちゃうぞ。'
+        result = '0で割ることはできないよ。ちゃんと勉強しないと嫌いになっちゃうぞ。'
       else
-        msgult = parseInt(msg.match[1], 10) / parseInt(msg.match[3], 10)
+        result = "#{parseInt(msg.match[1], 10) / parseInt(msg.match[3], 10)}"
 
-    msg.send msgult
+    msg.send result
 
 fetchImage = (msg) ->
   query = '橋本環奈'

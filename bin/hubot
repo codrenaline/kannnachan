@@ -7,7 +7,7 @@ export PATH="node_modules/.bin:node_modules/hubot/node_modules/.bin:$PATH"
 
 env_setting_file="bin/env_settings.sh"
 if [ -e $env_setting_file ]; then
-    sh $env_setting_file
+    source $env_setting_file
     echo "Load settings file"
 fi
 

@@ -18,7 +18,7 @@ module.exports = (robot) ->
       result = "#{parseInt(msg.match[1], 10) * parseInt(msg.match[3], 10)}"
     else
       if parseInt(msg.match[3], 10) == 0
-        result = '0で割ることはできないよ。ちゃんと勉強しないと嫌いになっちゃうぞ。'
+        result = '0で割っちゃいけないの？あたしにもわかるようにおしえてー'
       else
         result = "#{parseInt(msg.match[1], 10) / parseInt(msg.match[3], 10)}"
 

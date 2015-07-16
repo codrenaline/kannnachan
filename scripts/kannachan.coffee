@@ -5,7 +5,7 @@ module.exports = (robot) ->
     fetchImage msg
     msg.send 'なあに？'
 
-  robot.hear /^\@kannachan\:\s(おはよう|おはよ|おはようございます。)$/, (msg) ->
+  robot.respond /(おはよう|おはよ|おはようございます。)$/, (msg) ->
     msg_messages = ['おはよ。', '朝ごはんちゃんと食べた？', '今日も頑張ろうね']
     msg.send msg_messages[random(3)]
 

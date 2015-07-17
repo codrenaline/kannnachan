@@ -1,15 +1,15 @@
 random = (n) -> Math.floor(Math.random() * n)
 
 module.exports = (robot) ->
-  robot.hear /(かんな|カンナ|橋本環奈|橋本|環奈)/i, (msg) ->
+  robot.respond /(かんな|カンナ|橋本環奈|橋本|環奈)/i, (msg) ->
     fetchImage msg
     msg.send 'なあに？'
 
-  robot.hear /^\@kannachan\:\s(おはよう|おはよ|おはようございます。)$/, (msg) ->
-    msg_messages = ['おはよ。', '朝ごはんちゃんと食べた？', '今日も頑張ろうね']
-    msg.send msg_messages[random(3)]
+  robot.respond /(おはよう|おはよ|おはようございます。)$/, (msg) ->
+    msg_messages = ['おはよ。', '朝ごはんちゃんと食べた？今日も頑張ろうね']
+    msg.send msg_messages[random(2)]
 
-  robot.hear /^\@kannachan\:\s([0-9]*)\s([\+\-\*\/])\s([0-9]*)$/, (msg) ->
+  robot.respond /([0-9]*)\s([\+\-\*\/])\s([0-9]*)$/, (msg) ->
     if msg.match[2] == '+'
       result = "#{parseInt(msg.match[1], 10) + parseInt(msg.match[3], 10)}"
     else if msg.match[2] == '-'
@@ -21,8 +21,12 @@ module.exports = (robot) ->
         result = '0で割ることはできないよ。ちゃんと勉強しないと嫌いになっちゃうぞ。'
       else
         result = "#{parseInt(msg.match[1], 10) / parseInt(msg.match[3], 10)}"
-
     msg.send result
+
+  robot.respond /(可愛い|かわいい|綺麗|美しい)/, (msg) ->
+    msg_messages = ['ありがとう', 'ありがと', '嬉しい']
+    msg.send msg_messages[random(3)]
+    msg.send is_embarrassed_images[random(is_embarrassed_images.length)]
 
 fetchImage = (msg) ->
   query = '橋本環奈'
@@ -42,3 +46,8 @@ fetchImage = (msg) ->
           msg.send image.unescapedUrl
         else
           msg.send "Nothing Image"
+
+is_embarrassed_images = [
+  'https://pbs.twimg.com/media/BtwnLScCYAAvdav.jpg'
+]
+

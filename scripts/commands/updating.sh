@@ -1,3 +1,2 @@
 #! /bin/sh
-git pull
-../../bin/hubot -a slack
+git pull origin master

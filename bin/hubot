@@ -11,4 +11,4 @@ if [ -e $env_setting_file ]; then
     echo "Load settings file"
 fi
 
-exec node_modules/.bin/hubot --name "kannachan" "$@"
+forever -w start -c coffee node_modules/.bin/hubot --name "kannachan" -a slack 

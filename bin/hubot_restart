@@ -1,0 +1,5 @@
+#!/bin/sh
+
+set -e
+forever stop -c coffee node_modules/.bin/hubot
+source bin/hubot

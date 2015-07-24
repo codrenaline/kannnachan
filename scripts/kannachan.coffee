@@ -1,5 +1,3 @@
-random = (n) -> Math.floor(Math.random() * n)
-
 module.exports = (robot) ->
   robot.respond /(かんな|カンナ|橋本環奈|橋本|環奈)/i, (msg) ->
     fetchImage msg
@@ -7,7 +5,7 @@ module.exports = (robot) ->
 
   robot.respond /(おはよう|おはよ|おはようございます。)$/, (msg) ->
     msg_messages = ['おはよ。', '朝ごはんちゃんと食べた？今日も頑張ろうね']
-    msg.send msg_messages[random(2)]
+    msg.send msg.random msg_messages
 
   robot.respond /([0-9]*)\s([\+\-\*\/])\s([0-9]*)$/, (msg) ->
     if msg.match[2] == '+'
@@ -25,7 +23,7 @@ module.exports = (robot) ->
 
   robot.respond /(可愛い|かわいい|綺麗|美しい)/, (msg) ->
     msg_messages = ['ありがとう', 'ありがと', '嬉しい']
-    msg.send msg_messages[random(3)]
+    msg.send msg.random msg_messages
     msg.send is_embarrassed_images[random(is_embarrassed_images.length)]
 
 fetchImage = (msg) ->
@@ -50,4 +48,3 @@ fetchImage = (msg) ->
 is_embarrassed_images = [
   'https://pbs.twimg.com/media/BtwnLScCYAAvdav.jpg'
 ]
-

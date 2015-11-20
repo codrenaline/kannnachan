@@ -3,8 +3,7 @@
     "log_root": "XXX",
     "members":[
         {
-            "channel": "XXX",
-            "name": "XXX"
+            "channel": "XXX"
         }
     ]
 }

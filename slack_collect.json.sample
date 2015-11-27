@@ -1,0 +1,9 @@
+{
+    "token": "XXX",
+    "log_root": "XXX",
+    "members":[
+        {
+            "channel": "XXX"
+        }
+    ]
+}

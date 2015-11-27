@@ -7,7 +7,7 @@ module.exports = (robot) ->
     s_list = ''
     for i, s of schedule
       s_list += "#{s.cron} #{s.room} #{s.message} \n"
-    msg.send "はーい\`\`\`#{s_list}\`\`\`"
+    msg.send "はーい \`\`\`#{s_list}\`\`\`"
 
   for i, s of schedule
     new cron s.cron , () =>
